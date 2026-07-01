@@ -240,11 +240,13 @@ shows an **Output Tokens Saved** card next to input compression, labelled
 | OpenHands    | ✅              | starts proxy + launches          |
 | Mistral Vibe | ✅              | starts proxy + launches          |
 | Oh My Pi     | ✅              | injects config · starts proxy + launches |
+| Kiro         | MCP             | native MCP via `headroom mcp install` (`--agent kiro`) → `~/.kiro/settings/mcp.json` |
 | Cortex Code  | Library only    | 60–65% savings (library mode; no `wrap`) |
 | Kimi CLI     | ✅              | OAuth bearer forwarded — log in once |
 | ZCode        | ✅              | starts proxy and prints base URLs for ZCode settings |
 
 Any OpenAI-compatible client works via `headroom proxy`. MCP-native: `headroom mcp install`.
+Kiro is MCP-native: `headroom mcp install` (or `--agent kiro`) writes the Headroom MCP server into `~/.kiro/settings/mcp.json` so Kiro can call `headroom_compress`, `headroom_retrieve`, and `headroom_stats`.
 Undo durable wrapping with `headroom unwrap <tool>` (supports: `claude`, `copilot`, `codex`, `grok`, `kimi`, `omp`, `opencode`, `openclaw`, `zcode`).
 Registry authors can use the canonical [`server.json`](server.json) in the repo root instead of reconstructing the `headroom mcp serve` contract from prose.
 

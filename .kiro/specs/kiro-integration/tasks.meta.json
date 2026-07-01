@@ -1,0 +1,789 @@
+{
+  "pbtResults": {
+    "3.3 Write property test for injection idempotence": {
+      "status": "passed",
+      "lastRunTimestamp": 1782857747140
+    },
+    "2.2 Write property tests for environment-builder purity and launch completeness": {
+      "status": "passed",
+      "lastRunTimestamp": 1782857788992
+    },
+    "2.3 Write property tests for loopback-only URLs, port validation, and project attribution": {
+      "status": "passed",
+      "lastRunTimestamp": 1782857827139
+    },
+    "3.2 Write property test for wrap/unwrap reversibility": {
+      "status": "passed",
+      "lastRunTimestamp": 1782857844505
+    },
+    "6.2 Write property test for idempotent registration": {
+      "status": "passed",
+      "lastRunTimestamp": 1782880395008
+    },
+    "6.3 Write property test for round-trip mapping": {
+      "status": "passed",
+      "lastRunTimestamp": 1782880400092
+    },
+    "6.4 Write property test for unknown-field preservation": {
+      "status": "passed",
+      "lastRunTimestamp": 1782880403338
+    }
+  },
+  "executionHistory": {
+    "1.1 Add `ToolTarget.KIRO` to the install models": [
+      {
+        "executionId": "95ecf52a-eebc-470e-85a9-1aef514a67e1",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782854621098
+      },
+      {
+        "executionId": "95ecf52a-eebc-470e-85a9-1aef514a67e1",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782854630963
+      },
+      {
+        "executionId": "95ecf52a-eebc-470e-85a9-1aef514a67e1",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782855558978
+      }
+    ],
+    "1.2 Implement `kiro_settings_path()` in `headroom/install/paths.py`": [
+      {
+        "executionId": "95ecf52a-eebc-470e-85a9-1aef514a67e1",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782854621213
+      },
+      {
+        "executionId": "95ecf52a-eebc-470e-85a9-1aef514a67e1",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782854631995
+      },
+      {
+        "executionId": "95ecf52a-eebc-470e-85a9-1aef514a67e1",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782855559970
+      }
+    ],
+    "2.1 Implement `KiroProxyTargets`, `build_proxy_targets`, `render_setup_lines`, `build_launch_env`": [
+      {
+        "executionId": "95ecf52a-eebc-470e-85a9-1aef514a67e1",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782854621259
+      },
+      {
+        "executionId": "95ecf52a-eebc-470e-85a9-1aef514a67e1",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782854633793
+      },
+      {
+        "executionId": "95ecf52a-eebc-470e-85a9-1aef514a67e1",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782855560967
+      }
+    ],
+    "3.1 Implement `build_install_env`, `apply_provider_scope`, `revert_provider_scope`": [
+      {
+        "executionId": "95ecf52a-eebc-470e-85a9-1aef514a67e1",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782854621289
+      },
+      {
+        "executionId": "95ecf52a-eebc-470e-85a9-1aef514a67e1",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782855574207
+      },
+      {
+        "executionId": "95ecf52a-eebc-470e-85a9-1aef514a67e1",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782856394279
+      }
+    ],
+    "4. Checkpoint - core slice complete": [
+      {
+        "executionId": "95ecf52a-eebc-470e-85a9-1aef514a67e1",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782854621340
+      },
+      {
+        "executionId": "95ecf52a-eebc-470e-85a9-1aef514a67e1",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782856417591
+      },
+      {
+        "executionId": "95ecf52a-eebc-470e-85a9-1aef514a67e1",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782857527158
+      }
+    ],
+    "5.1 Create `headroom/providers/kiro/__init__.py` re-exports": [
+      {
+        "executionId": "95ecf52a-eebc-470e-85a9-1aef514a67e1",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782854621370
+      },
+      {
+        "executionId": "95ecf52a-eebc-470e-85a9-1aef514a67e1",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782857878377
+      },
+      {
+        "executionId": "95ecf52a-eebc-470e-85a9-1aef514a67e1",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782858032914
+      }
+    ],
+    "5.2 Register Kiro in `headroom/providers/install_registry.py`": [
+      {
+        "executionId": "95ecf52a-eebc-470e-85a9-1aef514a67e1",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782854621399
+      },
+      {
+        "executionId": "95ecf52a-eebc-470e-85a9-1aef514a67e1",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782857878429
+      },
+      {
+        "executionId": "95ecf52a-eebc-470e-85a9-1aef514a67e1",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782858032945
+      }
+    ],
+    "6.1 Add the `wrap kiro` subcommand (IDE default, `--inject`, `--cli`)": [
+      {
+        "executionId": "95ecf52a-eebc-470e-85a9-1aef514a67e1",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782854621429
+      },
+      {
+        "executionId": "95ecf52a-eebc-470e-85a9-1aef514a67e1",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782858041367
+      },
+      {
+        "executionId": "95ecf52a-eebc-470e-85a9-1aef514a67e1",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782858677376
+      }
+    ],
+    "6.2 Add the `unwrap kiro` subcommand": [
+      {
+        "executionId": "95ecf52a-eebc-470e-85a9-1aef514a67e1",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782854621459
+      },
+      {
+        "executionId": "95ecf52a-eebc-470e-85a9-1aef514a67e1",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782858681204
+      },
+      {
+        "executionId": "95ecf52a-eebc-470e-85a9-1aef514a67e1",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782858955673
+      }
+    ],
+    "7.1 Document Kiro in `README.md`": [
+      {
+        "executionId": "95ecf52a-eebc-470e-85a9-1aef514a67e1",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782854621490
+      },
+      {
+        "executionId": "95ecf52a-eebc-470e-85a9-1aef514a67e1",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782854633881
+      },
+      {
+        "executionId": "95ecf52a-eebc-470e-85a9-1aef514a67e1",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782855561674
+      }
+    ],
+    "8. Final checkpoint - full suite green": [
+      {
+        "executionId": "95ecf52a-eebc-470e-85a9-1aef514a67e1",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782854621517
+      },
+      {
+        "executionId": "95ecf52a-eebc-470e-85a9-1aef514a67e1",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782859290748
+      },
+      {
+        "executionId": "95ecf52a-eebc-470e-85a9-1aef514a67e1",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782860716480
+      },
+      {
+        "executionId": "492ddee3-f24a-4f35-996b-554da3203985",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782877247092
+      },
+      {
+        "executionId": "492ddee3-f24a-4f35-996b-554da3203985",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782880436609
+      },
+      {
+        "executionId": "492ddee3-f24a-4f35-996b-554da3203985",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782880507467
+      }
+    ],
+    "1. Foundation: tool enum and settings-path resolver": [
+      {
+        "executionId": "95ecf52a-eebc-470e-85a9-1aef514a67e1",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782855559998
+      }
+    ],
+    "2. Implement pure runtime helpers (`headroom/providers/kiro/runtime.py`)": [
+      {
+        "executionId": "95ecf52a-eebc-470e-85a9-1aef514a67e1",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782855561080
+      }
+    ],
+    "7. Update README documentation": [
+      {
+        "executionId": "95ecf52a-eebc-470e-85a9-1aef514a67e1",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782855561730
+      },
+      {
+        "executionId": "492ddee3-f24a-4f35-996b-554da3203985",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782879403289
+      }
+    ],
+    "3. Implement durable install slice (`headroom/providers/kiro/install.py`)": [
+      {
+        "executionId": "95ecf52a-eebc-470e-85a9-1aef514a67e1",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782856394321
+      }
+    ],
+    "1.3 Write unit tests for `kiro_settings_path()`": [
+      {
+        "executionId": "95ecf52a-eebc-470e-85a9-1aef514a67e1",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782857557735
+      },
+      {
+        "executionId": "95ecf52a-eebc-470e-85a9-1aef514a67e1",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782857579236
+      },
+      {
+        "executionId": "95ecf52a-eebc-470e-85a9-1aef514a67e1",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782857864255
+      }
+    ],
+    "2.2 Write property tests for environment-builder purity and launch completeness": [
+      {
+        "executionId": "95ecf52a-eebc-470e-85a9-1aef514a67e1",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782857558716
+      },
+      {
+        "executionId": "95ecf52a-eebc-470e-85a9-1aef514a67e1",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782857580424
+      },
+      {
+        "executionId": "95ecf52a-eebc-470e-85a9-1aef514a67e1",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782857865594
+      }
+    ],
+    "2.3 Write property tests for loopback-only URLs, port validation, and project attribution": [
+      {
+        "executionId": "95ecf52a-eebc-470e-85a9-1aef514a67e1",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782857559763
+      },
+      {
+        "executionId": "95ecf52a-eebc-470e-85a9-1aef514a67e1",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782857582282
+      },
+      {
+        "executionId": "95ecf52a-eebc-470e-85a9-1aef514a67e1",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782857867949
+      }
+    ],
+    "3.2 Write property test for wrap/unwrap reversibility": [
+      {
+        "executionId": "95ecf52a-eebc-470e-85a9-1aef514a67e1",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782857560767
+      },
+      {
+        "executionId": "95ecf52a-eebc-470e-85a9-1aef514a67e1",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782857583205
+      },
+      {
+        "executionId": "95ecf52a-eebc-470e-85a9-1aef514a67e1",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782857868166
+      }
+    ],
+    "3.3 Write property test for injection idempotence": [
+      {
+        "executionId": "95ecf52a-eebc-470e-85a9-1aef514a67e1",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782857561751
+      },
+      {
+        "executionId": "95ecf52a-eebc-470e-85a9-1aef514a67e1",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782857583322
+      },
+      {
+        "executionId": "95ecf52a-eebc-470e-85a9-1aef514a67e1",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782857868355
+      }
+    ],
+    "3.4 Write unit tests for backup, scope gating, preservation, and lenient parsing": [
+      {
+        "executionId": "95ecf52a-eebc-470e-85a9-1aef514a67e1",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782857562688
+      },
+      {
+        "executionId": "95ecf52a-eebc-470e-85a9-1aef514a67e1",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782857878284
+      },
+      {
+        "executionId": "95ecf52a-eebc-470e-85a9-1aef514a67e1",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782858030170
+      }
+    ],
+    "5.3 Write registry dispatch and blast-radius tests": [
+      {
+        "executionId": "95ecf52a-eebc-470e-85a9-1aef514a67e1",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782858040422
+      },
+      {
+        "executionId": "95ecf52a-eebc-470e-85a9-1aef514a67e1",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782858041217
+      },
+      {
+        "executionId": "95ecf52a-eebc-470e-85a9-1aef514a67e1",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782858677205
+      }
+    ],
+    "5. Expose slice surface and wire the registry": [
+      {
+        "executionId": "95ecf52a-eebc-470e-85a9-1aef514a67e1",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782858677276
+      }
+    ],
+    "6. Wire the CLI subcommands (`headroom/cli/wrap.py`)": [
+      {
+        "executionId": "95ecf52a-eebc-470e-85a9-1aef514a67e1",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782858955712
+      }
+    ],
+    "6.3 Write integration tests for `wrap kiro` (`tests/test_cli/test_wrap_kiro.py`)": [
+      {
+        "executionId": "95ecf52a-eebc-470e-85a9-1aef514a67e1",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782858957583
+      },
+      {
+        "executionId": "95ecf52a-eebc-470e-85a9-1aef514a67e1",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782858963091
+      },
+      {
+        "executionId": "95ecf52a-eebc-470e-85a9-1aef514a67e1",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782859286106
+      }
+    ],
+    "6.4 Write integration tests for `unwrap kiro` (`tests/test_cli/test_unwrap_kiro.py`)": [
+      {
+        "executionId": "95ecf52a-eebc-470e-85a9-1aef514a67e1",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782858957741
+      },
+      {
+        "executionId": "95ecf52a-eebc-470e-85a9-1aef514a67e1",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782858963469
+      },
+      {
+        "executionId": "95ecf52a-eebc-470e-85a9-1aef514a67e1",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782859287090
+      }
+    ],
+    "1.1 Delete the `headroom/providers/kiro/` package": [
+      {
+        "executionId": "492ddee3-f24a-4f35-996b-554da3203985",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782877246664
+      },
+      {
+        "executionId": "492ddee3-f24a-4f35-996b-554da3203985",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782877257501
+      },
+      {
+        "executionId": "492ddee3-f24a-4f35-996b-554da3203985",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782879288683
+      }
+    ],
+    "1.2 Remove Kiro dispatch from `headroom/providers/install_registry.py`": [
+      {
+        "executionId": "492ddee3-f24a-4f35-996b-554da3203985",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782877246692
+      },
+      {
+        "executionId": "492ddee3-f24a-4f35-996b-554da3203985",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782877258488
+      },
+      {
+        "executionId": "492ddee3-f24a-4f35-996b-554da3203985",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782879288895
+      }
+    ],
+    "1.3 Remove the Kiro CLI paths from `headroom/cli/wrap.py`": [
+      {
+        "executionId": "492ddee3-f24a-4f35-996b-554da3203985",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782877246717
+      },
+      {
+        "executionId": "492ddee3-f24a-4f35-996b-554da3203985",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782877261224
+      },
+      {
+        "executionId": "492ddee3-f24a-4f35-996b-554da3203985",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782879289074
+      }
+    ],
+    "1.4 Remove the Kiro settings-path resolver from `headroom/install/paths.py`": [
+      {
+        "executionId": "492ddee3-f24a-4f35-996b-554da3203985",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782877246742
+      },
+      {
+        "executionId": "492ddee3-f24a-4f35-996b-554da3203985",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782877261418
+      },
+      {
+        "executionId": "492ddee3-f24a-4f35-996b-554da3203985",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782879289406
+      }
+    ],
+    "1.5 Remove `ToolTarget.KIRO` from `headroom/install/models.py`": [
+      {
+        "executionId": "492ddee3-f24a-4f35-996b-554da3203985",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782877246799
+      },
+      {
+        "executionId": "492ddee3-f24a-4f35-996b-554da3203985",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782877261774
+      },
+      {
+        "executionId": "492ddee3-f24a-4f35-996b-554da3203985",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782879290205
+      }
+    ],
+    "1.6 Delete the proxy-era Kiro tests": [
+      {
+        "executionId": "492ddee3-f24a-4f35-996b-554da3203985",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782877246822
+      },
+      {
+        "executionId": "492ddee3-f24a-4f35-996b-554da3203985",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782879294951
+      },
+      {
+        "executionId": "492ddee3-f24a-4f35-996b-554da3203985",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782879402788
+      }
+    ],
+    "1.7 Verify removal is clean": [
+      {
+        "executionId": "492ddee3-f24a-4f35-996b-554da3203985",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782877246846
+      },
+      {
+        "executionId": "492ddee3-f24a-4f35-996b-554da3203985",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782879408263
+      },
+      {
+        "executionId": "492ddee3-f24a-4f35-996b-554da3203985",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782879825534
+      }
+    ],
+    "2. Checkpoint - defunct integration removed": [
+      {
+        "executionId": "492ddee3-f24a-4f35-996b-554da3203985",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782877246867
+      },
+      {
+        "executionId": "492ddee3-f24a-4f35-996b-554da3203985",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782879833045
+      },
+      {
+        "executionId": "492ddee3-f24a-4f35-996b-554da3203985",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782879839640
+      }
+    ],
+    "3.1 Implement config resolution and JSON IO helpers": [
+      {
+        "executionId": "492ddee3-f24a-4f35-996b-554da3203985",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782877246891
+      },
+      {
+        "executionId": "492ddee3-f24a-4f35-996b-554da3203985",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782879840019
+      },
+      {
+        "executionId": "492ddee3-f24a-4f35-996b-554da3203985",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782879949611
+      }
+    ],
+    "3.2 Implement the entry <-> spec mapping helpers": [
+      {
+        "executionId": "492ddee3-f24a-4f35-996b-554da3203985",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782877246915
+      },
+      {
+        "executionId": "492ddee3-f24a-4f35-996b-554da3203985",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782879950628
+      }
+    ],
+    "3.3 Implement the `KiroRegistrar` class": [
+      {
+        "executionId": "492ddee3-f24a-4f35-996b-554da3203985",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782877246939
+      },
+      {
+        "executionId": "492ddee3-f24a-4f35-996b-554da3203985",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782879951050
+      }
+    ],
+    "4.1 Register in `headroom/mcp_registry/install.py`": [
+      {
+        "executionId": "492ddee3-f24a-4f35-996b-554da3203985",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782877246996
+      },
+      {
+        "executionId": "492ddee3-f24a-4f35-996b-554da3203985",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782879957037
+      },
+      {
+        "executionId": "492ddee3-f24a-4f35-996b-554da3203985",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782880028767
+      }
+    ],
+    "4.2 Export from `headroom/mcp_registry/__init__.py`": [
+      {
+        "executionId": "492ddee3-f24a-4f35-996b-554da3203985",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782877247017
+      },
+      {
+        "executionId": "492ddee3-f24a-4f35-996b-554da3203985",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782879958661
+      },
+      {
+        "executionId": "492ddee3-f24a-4f35-996b-554da3203985",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782880029948
+      }
+    ],
+    "5. Checkpoint - registrar wired into the fleet": [
+      {
+        "executionId": "492ddee3-f24a-4f35-996b-554da3203985",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782877247046
+      },
+      {
+        "executionId": "492ddee3-f24a-4f35-996b-554da3203985",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782880035384
+      }
+    ],
+    "7.1 Re-scope Kiro in `README.md`": [
+      {
+        "executionId": "492ddee3-f24a-4f35-996b-554da3203985",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782877247068
+      },
+      {
+        "executionId": "492ddee3-f24a-4f35-996b-554da3203985",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782879295211
+      },
+      {
+        "executionId": "492ddee3-f24a-4f35-996b-554da3203985",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782879403230
+      }
+    ],
+    "1. Remove the defunct proxy/base-URL Kiro integration": [
+      {
+        "executionId": "492ddee3-f24a-4f35-996b-554da3203985",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782879825576
+      }
+    ],
+    "3. Implement the KiroRegistrar (`headroom/mcp_registry/kiro.py` NEW)": [
+      {
+        "executionId": "492ddee3-f24a-4f35-996b-554da3203985",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782879951138
+      }
+    ],
+    "4. Wire the KiroRegistrar into the fleet": [
+      {
+        "executionId": "492ddee3-f24a-4f35-996b-554da3203985",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782880030016
+      }
+    ],
+    "6.1 Write unit tests (`tests/test_mcp_registry/test_kiro_registrar.py` NEW)": [
+      {
+        "executionId": "492ddee3-f24a-4f35-996b-554da3203985",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782880045118
+      },
+      {
+        "executionId": "492ddee3-f24a-4f35-996b-554da3203985",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782880054462
+      },
+      {
+        "executionId": "492ddee3-f24a-4f35-996b-554da3203985",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782880429569
+      }
+    ],
+    "6.2 Write property test for idempotent registration": [
+      {
+        "executionId": "492ddee3-f24a-4f35-996b-554da3203985",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782880047094
+      },
+      {
+        "executionId": "492ddee3-f24a-4f35-996b-554da3203985",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782880055460
+      },
+      {
+        "executionId": "492ddee3-f24a-4f35-996b-554da3203985",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782880430636
+      }
+    ],
+    "6.3 Write property test for round-trip mapping": [
+      {
+        "executionId": "492ddee3-f24a-4f35-996b-554da3203985",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782880048087
+      },
+      {
+        "executionId": "492ddee3-f24a-4f35-996b-554da3203985",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782880056480
+      },
+      {
+        "executionId": "492ddee3-f24a-4f35-996b-554da3203985",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782880432404
+      }
+    ],
+    "6.4 Write property test for unknown-field preservation": [
+      {
+        "executionId": "492ddee3-f24a-4f35-996b-554da3203985",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782880049065
+      },
+      {
+        "executionId": "492ddee3-f24a-4f35-996b-554da3203985",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782880057467
+      },
+      {
+        "executionId": "492ddee3-f24a-4f35-996b-554da3203985",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782880432689
+      }
+    ],
+    "6.5 Update fleet wiring tests (`tests/test_mcp_registry/test_install.py` EDIT)": [
+      {
+        "executionId": "492ddee3-f24a-4f35-996b-554da3203985",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782880049598
+      },
+      {
+        "executionId": "492ddee3-f24a-4f35-996b-554da3203985",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782880058447
+      },
+      {
+        "executionId": "492ddee3-f24a-4f35-996b-554da3203985",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782880428741
+      }
+    ],
+    "6. Test the KiroRegistrar": [
+      {
+        "executionId": "492ddee3-f24a-4f35-996b-554da3203985",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1782880428822
+      }
+    ]
+  }
+}

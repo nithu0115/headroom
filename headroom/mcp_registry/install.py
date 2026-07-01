@@ -10,6 +10,7 @@ from .base import MCPRegistrar, RegisterResult, RegisterStatus, ServerSpec
 from .claude import ClaudeRegistrar
 from .codex import CodexRegistrar
 from .grok import GrokRegistrar
+from .kiro import KiroRegistrar
 from .opencode import OpencodeRegistrar
 
 #: Default proxy URL used when none is given.
@@ -21,7 +22,13 @@ def get_all_registrars() -> list[MCPRegistrar]:
 
     The list grows as we add adapters for Cursor, Continue, Cline, etc.
     """
-    return [ClaudeRegistrar(), CodexRegistrar(), GrokRegistrar(), OpencodeRegistrar()]
+    return [
+        ClaudeRegistrar(),
+        CodexRegistrar(),
+        GrokRegistrar(),
+        OpencodeRegistrar(),
+        KiroRegistrar(),
+    ]
 
 
 def build_headroom_spec(proxy_url: str = DEFAULT_PROXY_URL) -> ServerSpec:

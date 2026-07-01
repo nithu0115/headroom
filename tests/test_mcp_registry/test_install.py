@@ -12,8 +12,10 @@ from headroom.mcp_registry.install import (
     DEFAULT_PROXY_URL,
     build_headroom_spec,
     build_serena_spec,
+    get_all_registrars,
     install_everywhere,
 )
+from headroom.mcp_registry.kiro import KiroRegistrar
 
 
 class _FakeRegistrar(MCPRegistrar):
@@ -182,3 +184,31 @@ def test_install_everywhere_returns_mismatch_results() -> None:
     results = install_everywhere(registrars=[mismatched])
     assert results["a"].status == RegisterStatus.MISMATCH
     assert results["a"].ok is False  # mismatch is NOT a success
+
+
+# ----------------------------------------------------------------------
+# Kiro fleet wiring
+# ----------------------------------------------------------------------
+
+
+def test_get_all_registrars_includes_kiro_exactly_once() -> None:
+    registrars = get_all_registrars()
+    names = [r.name for r in registrars]
+    assert names.count("kiro") == 1
+    assert any(isinstance(r, KiroRegistrar) for r in registrars)
+
+
+def test_install_everywhere_dispatches_to_kiro(tmp_path) -> None:
+    # Point the registrar at an isolated config dir so detect() is True
+    # (parent dir exists) regardless of whether ~/.kiro is present, and the
+    # write lands in the tmp tree instead of the real home config.
+    settings_dir = tmp_path / "settings"
+    settings_dir.mkdir()
+    kiro = KiroRegistrar(config_path=settings_dir / "mcp.json")
+    other = _FakeRegistrar("a")
+
+    results = install_everywhere(registrars=[kiro, other], agents=["kiro"])
+
+    assert set(results) == {"kiro"}
+    assert results["kiro"].status == RegisterStatus.REGISTERED
+    assert "a" not in results

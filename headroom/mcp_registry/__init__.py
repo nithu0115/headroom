@@ -25,6 +25,7 @@ from .install import (
     get_all_registrars,
     install_everywhere,
 )
+from .kiro import KiroRegistrar
 from .opencode import OpencodeRegistrar
 from .server_json import build_server_json, render_server_json
 
@@ -33,6 +34,7 @@ __all__ = [
     "ClaudeRegistrar",
     "CodexRegistrar",
     "GrokRegistrar",
+    "KiroRegistrar",
     "MCPRegistrar",
     "OpencodeRegistrar",
     "RegisterResult",
