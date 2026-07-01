@@ -206,9 +206,11 @@ shows an **Output Tokens Saved** card next to input compression, labelled
 | Goose        | ✅              | starts proxy + launches          |
 | OpenHands    | ✅              | starts proxy + launches          |
 | Mistral Vibe | ✅              | starts proxy + launches          |
+| Kiro         | MCP             | native MCP via `headroom mcp install` (`--agent kiro`) → `~/.kiro/settings/mcp.json` |
 | Cortex Code  | Library only    | 60–65% savings (library mode; no `wrap`) |
 
 Any OpenAI-compatible client works via `headroom proxy`. MCP-native: `headroom mcp install`.
+Kiro is MCP-native: `headroom mcp install` (or `--agent kiro`) writes the Headroom MCP server into `~/.kiro/settings/mcp.json` so Kiro can call `headroom_compress`, `headroom_retrieve`, and `headroom_stats`.
 Undo durable wrapping with `headroom unwrap <tool>` (supports: `claude`, `copilot`, `codex`, `opencode`, `openclaw`).
 
 ### GitHub Copilot CLI subscription mode
