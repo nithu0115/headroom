@@ -84,9 +84,7 @@ def test_detect_true_when_parent_dir_exists(
     assert reg.detect() is True
 
 
-def test_detect_true_when_kiro_home_exists(
-    monkeypatch: pytest.MonkeyPatch, tmp_path: Path
-) -> None:
+def test_detect_true_when_kiro_home_exists(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> None:
     monkeypatch.setattr("headroom.mcp_registry.kiro.shutil.which", lambda name: None)
     fake_home = tmp_path / "home"
     (fake_home / ".kiro").mkdir(parents=True)
@@ -95,9 +93,7 @@ def test_detect_true_when_kiro_home_exists(
     assert reg.detect() is True
 
 
-def test_detect_false_when_nothing_present(
-    monkeypatch: pytest.MonkeyPatch, tmp_path: Path
-) -> None:
+def test_detect_false_when_nothing_present(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> None:
     monkeypatch.setattr("headroom.mcp_registry.kiro.shutil.which", lambda name: None)
     fake_home = tmp_path / "home"
     fake_home.mkdir()  # no .kiro inside
@@ -413,9 +409,7 @@ def test_property_round_trip_entry_mapping() -> None:
         name=st.text(min_size=1, max_size=12),
         command=st.text(min_size=1, max_size=12),
         args=st.lists(st.text(max_size=8), max_size=5).map(tuple),
-        env=st.dictionaries(
-            st.text(min_size=1, max_size=6), st.text(max_size=8), max_size=3
-        ),
+        env=st.dictionaries(st.text(min_size=1, max_size=6), st.text(max_size=8), max_size=3),
     )
 
     @settings(max_examples=100, deadline=None)

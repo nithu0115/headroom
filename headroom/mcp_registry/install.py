@@ -9,8 +9,19 @@ from headroom.install.runtime import resolve_headroom_command
 from .base import MCPRegistrar, RegisterResult, RegisterStatus, ServerSpec
 from .claude import ClaudeRegistrar
 from .codex import CodexRegistrar
+from .gateway import build_gateway_spec
 from .kiro import KiroRegistrar
 from .opencode import OpencodeRegistrar
+
+__all__ = [
+    "DEFAULT_PROXY_URL",
+    "build_gateway_spec",
+    "build_headroom_spec",
+    "build_serena_spec",
+    "build_tokensave_spec",
+    "get_all_registrars",
+    "install_everywhere",
+]
 
 #: Default proxy URL used when none is given.
 DEFAULT_PROXY_URL = "http://127.0.0.1:8787"

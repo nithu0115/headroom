@@ -7,7 +7,7 @@ MATURIN ?= maturin
 PYTHON ?= python3
 FIXTURES ?= tests/parity/fixtures
 
-.PHONY: help test test-parity bench build-proxy build-wheel fmt fmt-check lint clippy clean ci-precheck ci-precheck-rust ci-precheck-python ci-precheck-commitlint install-git-hooks verify-rust-core
+.PHONY: help test test-parity bench build-proxy build-wheel fmt fmt-check lint clippy clean ci-precheck ci-precheck-rust ci-precheck-python ci-precheck-commitlint install-git-hooks verify-rust-core wheel wheel-install wheel-verify
 
 help:
 	@echo "Headroom Rust targets:"
@@ -32,6 +32,11 @@ help:
 	@echo "  make ci-precheck-python - smart_crusher-affected python tests"
 	@echo "  make ci-precheck-commitlint - lint commits since origin/main"
 	@echo "  make install-git-hooks  - install pre-commit, commit-msg, and pre-push hooks"
+	@echo ""
+	@echo "Local wheel install:"
+	@echo "  make wheel              - build the headroom-ai wheel (root pyproject)"
+	@echo "  make wheel-install      - build + force-reinstall into \$$LOCAL_VENV"
+	@echo "  make wheel-verify       - show which build the installed CLI reports"
 
 test:
 	$(CARGO) test --workspace
@@ -155,3 +160,40 @@ build-e2e-wrap:
 
 run-e2e-wrap: build-e2e-wrap
 	docker run --rm headroom-wrap-e2e
+
+# ─── Local wheel install ───────────────────────────────────────────────────
+#
+# Builds the full headroom-ai wheel from the ROOT pyproject (not the
+# crates/headroom-py extension wheel that `build-wheel` produces) and
+# force-reinstalls it into a standalone consumption venv, so an installed
+# `headroom` CLI runs your working tree instead of a stale wheel.
+#
+#   make wheel-install                          # -> $(LOCAL_VENV)
+#   make wheel-install LOCAL_VENV=~/other-venv  # different target venv
+#   make wheel-verify                           # show which build is installed
+
+LOCAL_VENV ?= $(HOME)/headroom-test
+WHEEL_PROFILE ?= ci
+WHEEL_DIR := target/wheels
+
+wheel:
+	uv run $(MATURIN) build --profile $(WHEEL_PROFILE)
+
+wheel-install: wheel
+	@PY="$(LOCAL_VENV)/bin/python3"; \
+	if [ ! -x "$$PY" ]; then \
+		echo "error: no interpreter at $$PY (set LOCAL_VENV=/path/to/venv)"; \
+		exit 1; \
+	fi; \
+	WHEEL=$$(ls -t $(WHEEL_DIR)/*.whl 2>/dev/null | head -1); \
+	if [ -z "$$WHEEL" ]; then \
+		echo "error: no wheel found in $(WHEEL_DIR)"; \
+		exit 1; \
+	fi; \
+	echo "installing $$WHEEL -> $(LOCAL_VENV)"; \
+	"$$PY" -m pip install --force-reinstall --no-deps "$$WHEEL"
+	@echo ""
+	@echo "✅ installed — restart the gateway in your client to pick it up."
+
+wheel-verify:
+	@"$(LOCAL_VENV)/bin/headroom" mcp gateway version
