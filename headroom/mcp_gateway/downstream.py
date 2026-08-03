@@ -46,7 +46,7 @@ import os
 from collections.abc import Awaitable, Callable, Mapping, Sequence
 from contextlib import AsyncExitStack
 from dataclasses import dataclass, field
-from typing import TYPE_CHECKING, Any, Protocol, runtime_checkable
+from typing import TYPE_CHECKING, Any, Protocol, cast, runtime_checkable
 
 from headroom.mcp_gateway.config import DownstreamSpec
 
@@ -639,7 +639,10 @@ class _RealDownstreamSession:
         return await fut
 
     async def list_tools(self) -> list[Any]:
-        return await self._request("list_tools")
+        # ``_request`` is typed ``Any`` because its return shape depends on
+        # ``op``; the ``list_tools`` worker branch always resolves the future
+        # with a list of MCP Tool objects.
+        return cast("list[Any]", await self._request("list_tools"))
 
     async def call_tool(self, tool: str, arguments: dict[str, Any]) -> Any:
         return await self._request("call_tool", tool=tool, arguments=arguments)
