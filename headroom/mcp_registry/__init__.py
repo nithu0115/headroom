@@ -17,6 +17,7 @@ from .base import MCPRegistrar, RegisterResult, RegisterStatus, ServerSpec
 from .claude import ClaudeRegistrar
 from .codex import CodexRegistrar
 from .display import any_succeeded, format_result, format_results
+from .gateway import GATEWAY_SERVER_NAME, GatewayRegistrar, build_gateway_spec
 from .grok import GrokRegistrar
 from .install import (
     DEFAULT_PROXY_URL,
@@ -31,8 +32,10 @@ from .server_json import build_server_json, render_server_json
 
 __all__ = [
     "DEFAULT_PROXY_URL",
+    "GATEWAY_SERVER_NAME",
     "ClaudeRegistrar",
     "CodexRegistrar",
+    "GatewayRegistrar",
     "GrokRegistrar",
     "KiroRegistrar",
     "MCPRegistrar",
@@ -41,6 +44,7 @@ __all__ = [
     "RegisterStatus",
     "ServerSpec",
     "any_succeeded",
+    "build_gateway_spec",
     "build_headroom_spec",
     "build_serena_spec",
     "build_server_json",

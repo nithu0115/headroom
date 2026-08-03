@@ -393,3 +393,265 @@ def mcp_serve(
         asyncio.run(run())
     except KeyboardInterrupt:
         pass  # Clean exit on Ctrl+C
+
+
+@mcp.group("gateway")
+def gateway() -> None:
+    """MCP Gateway: front many downstream MCP servers behind four meta-tools.
+
+    \b
+    The gateway is a single Headroom MCP server that a client (Kiro, Claude
+    Code, Cursor, ...) connects to *instead* of the many individual downstream
+    MCP servers. It aggregates every downstream tool out of the model context
+    and exposes only four meta-tools (find_tools, invoke_tool, describe_tool,
+    list_servers), so a client that would otherwise load hundreds of downstream
+    tool schemas instead sees a handful of meta-tools.
+
+    \b
+    Quick Start:
+        headroom mcp gateway install   # register headroom-gateway in your client
+        headroom mcp gateway status    # inspect downstreams + registration
+        # then restart your client so it connects to the gateway
+
+    \b
+    The gateway resolves its downstream inventory from (in priority order):
+        1. $HEADROOM_GATEWAY_CONFIG
+        2. ~/.kiro/settings/headroom-gateway.json
+        3. the client's ~/.kiro/settings/mcp.json
+    Disable individual downstreams via an `exclude` list in that source; the
+    gateway self entry is always excluded to prevent recursion.
+    """
+    pass
+
+
+@gateway.command("serve")
+@click.option(
+    "--debug",
+    is_flag=True,
+    help="Enable debug logging",
+)
+def gateway_serve(debug: bool) -> None:
+    """Start the MCP gateway (called by the client).
+
+    \b
+    This command is typically invoked by the client via the MCP config, not run
+    directly. It resolves the downstream inventory, connects to every reachable
+    downstream (isolating failures), builds the tool index, and serves the four
+    meta-tools over stdio. Unreachable downstreams are reported to stderr and do
+    not terminate the serve session.
+
+    \b
+    For manual testing:
+        headroom mcp gateway serve --debug
+    """
+    import asyncio
+    import json as _json
+    import logging
+
+    from headroom.mcp_gateway.config import resolve_gateway_config
+
+    if debug:
+        logging.basicConfig(
+            level=logging.DEBUG,
+            format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+        )
+    else:
+        # Minimal logging for MCP (stdout is the protocol channel; log to stderr).
+        logging.basicConfig(
+            level=logging.WARNING,
+            format="%(levelname)s: %(message)s",
+        )
+
+    config = resolve_gateway_config()
+
+    # `mcp` is optional: MCPGatewayServer.__init__ raises ImportError when the
+    # SDK is absent. Mirror `mcp serve` and fail gracefully with a clear message.
+    try:
+        from headroom.mcp_gateway.server import MCPGatewayServer
+
+        server = MCPGatewayServer(config)
+    except ImportError as e:
+        click.echo(f"Error: MCP dependencies not installed: {e}", err=True)
+        click.echo("Install with: pip install 'headroom-ai[mcp]'", err=True)
+        raise SystemExit(1) from None
+
+    async def run() -> None:
+        await server.start()
+        # Requirement 11.6: surface each unreachable downstream to stderr without
+        # terminating. The server already isolates failures; the list_servers
+        # status handler reports per-downstream health built from the aggregation.
+        try:
+            inventory = await server._handle_list_servers()
+            data = _json.loads(inventory[0].text) if inventory else {}
+            unreachable = [
+                str(entry.get("server"))
+                for entry in data.get("servers", [])
+                if entry.get("health") != "healthy"
+            ]
+            if unreachable:
+                click.echo(
+                    "Warning: unreachable downstream server(s): " + ", ".join(unreachable),
+                    err=True,
+                )
+        except Exception:  # noqa: BLE001 - status reporting must never break serve
+            logging.getLogger("headroom.cli.mcp").debug(
+                "gateway downstream status reporting failed", exc_info=True
+            )
+
+        try:
+            await server.run_stdio()
+        finally:
+            await server.cleanup()
+
+    try:
+        asyncio.run(run())
+    except KeyboardInterrupt:
+        pass  # Clean exit on Ctrl+C
+
+
+@gateway.command("install")
+@click.option(
+    "--force",
+    is_flag=True,
+    help="Overwrite an existing headroom-gateway entry whose config differs.",
+)
+def gateway_install(force: bool) -> None:
+    """Register the gateway as a single headroom-gateway entry in the client config.
+
+    \b
+    Writes exactly one `headroom-gateway` server entry (delegated to the Kiro
+    registrar so unmanaged keys like disabled/timeout/autoApprove are preserved).
+    If the entry already exists with a matching spec it is left unchanged and
+    reported as already installed; a differing entry is reported as a mismatch
+    unless --force is passed. A write failure aborts and leaves the config
+    unchanged.
+    """
+    from headroom.mcp_registry import (
+        GATEWAY_SERVER_NAME,
+        GatewayRegistrar,
+        format_result,
+    )
+
+    result = GatewayRegistrar().register(force=force)
+    line = format_result(
+        GATEWAY_SERVER_NAME,
+        result,
+        label=GATEWAY_SERVER_NAME,
+        verbose=True,
+        overwrite_hint="headroom mcp gateway install --force",
+    )
+    if line is not None:
+        click.echo(line)
+
+    if not result.ok:
+        raise SystemExit(1)
+
+    click.echo("\nNext step: restart your client so it connects to the headroom-gateway server.")
+
+
+@gateway.command("uninstall")
+def gateway_uninstall() -> None:
+    """Remove the headroom-gateway entry from the client config.
+
+    \b
+    Other MCP servers are preserved. If the gateway is not installed there is
+    nothing to remove; if the config write fails the operation aborts and the
+    config is left unchanged.
+    """
+    from headroom.mcp_registry import GATEWAY_SERVER_NAME, GatewayRegistrar
+
+    registrar = GatewayRegistrar()
+    if registrar.get_server() is None:
+        click.echo(f"{GATEWAY_SERVER_NAME} is not installed. Nothing to uninstall.")
+        return
+
+    if registrar.unregister_server():
+        click.echo(f"✓ {GATEWAY_SERVER_NAME} removed")
+    else:
+        click.echo(
+            f"Error: failed to remove {GATEWAY_SERVER_NAME} (client config unchanged).",
+            err=True,
+        )
+        raise SystemExit(1)
+
+
+@gateway.command("status")
+def gateway_status() -> None:
+    """Report the resolved downstream inventory and registration state.
+
+    \b
+    Shows the downstream servers the gateway would front and whether the
+    headroom-gateway self entry is registered in the client config. If only one
+    of these can be determined, this errors rather than returning a partial
+    status.
+    """
+    from headroom.mcp_registry import GATEWAY_SERVER_NAME, GatewayRegistrar
+
+    # Resolve the downstream inventory.
+    inventory: list[str] | None
+    inventory_error: str | None = None
+    try:
+        from headroom.mcp_gateway.config import resolve_gateway_config
+
+        config = resolve_gateway_config()
+        inventory = [downstream.name for downstream in config.downstreams]
+    except Exception as exc:  # noqa: BLE001 - undetermined inventory handled below
+        inventory = None
+        inventory_error = str(exc)
+
+    # Resolve the Self_Entry registration state.
+    registered: bool | None
+    registration_error: str | None = None
+    try:
+        registered = GatewayRegistrar().get_server() is not None
+    except Exception as exc:  # noqa: BLE001 - undetermined state handled below
+        registered = None
+        registration_error = str(exc)
+
+    # Requirement 11.9: never return a partial status.
+    if inventory is None or registered is None:
+        parts: list[str] = []
+        if inventory is None:
+            parts.append(f"downstream inventory ({inventory_error})")
+        if registered is None:
+            parts.append(f"registration state ({registration_error})")
+        click.echo(
+            "Error: gateway status could not be fully determined: " + "; ".join(parts),
+            err=True,
+        )
+        raise SystemExit(1)
+
+    click.echo("Headroom MCP Gateway Status")
+    click.echo("=" * 40)
+    state = "registered" if registered else "not registered"
+    click.echo(f"Registration:   {state} ({GATEWAY_SERVER_NAME})")
+    if inventory:
+        click.echo(f"Downstreams:    {len(inventory)} configured")
+        for name in inventory:
+            click.echo(f"                - {name}")
+    else:
+        click.echo("Downstreams:    none configured")
+
+
+@gateway.command("version")
+def gateway_version() -> None:
+    """Show the Headroom build serving the gateway.
+
+    \b
+    Reports the version plus the interpreter and package directory actually in
+    use. The version alone cannot distinguish two installs that report the same
+    version, so the resolved paths are what confirm a fresh wheel is live after
+    a --force-reinstall.
+    """
+    import sys
+    from pathlib import Path
+
+    import headroom
+    from headroom._version import __version__
+
+    module_file = getattr(headroom, "__file__", None)
+    package = str(Path(module_file).resolve().parent) if module_file else "unknown"
+
+    click.echo(f"headroom-gateway {__version__}")
+    click.echo(f"python           {sys.executable}")
+    click.echo(f"package          {package}")

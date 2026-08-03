@@ -1,0 +1,485 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1.1 Create `headroom/mcp_gateway/` package with data models": [
+      {
+        "executionId": "4c99d0d1-5ebb-4336-9a32-8e2e3f9d4e13",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1783356379717
+      },
+      {
+        "executionId": "4c99d0d1-5ebb-4336-9a32-8e2e3f9d4e13",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1783357105743
+      }
+    ],
+    "1. Create package scaffolding and core data models": [
+      {
+        "executionId": "4c99d0d1-5ebb-4336-9a32-8e2e3f9d4e13",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1783357105767
+      }
+    ],
+    "8.1 Implement `build_gateway_spec()` and `GatewayRegistrar` in `headroom/mcp_registry/gateway.py`": [
+      {
+        "executionId": "4c99d0d1-5ebb-4336-9a32-8e2e3f9d4e13",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1783357116087
+      },
+      {
+        "executionId": "4c99d0d1-5ebb-4336-9a32-8e2e3f9d4e13",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1783357447526
+      }
+    ],
+    "8. Implement the gateway registrar and spec builder": [
+      {
+        "executionId": "4c99d0d1-5ebb-4336-9a32-8e2e3f9d4e13",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1783357447553
+      }
+    ],
+    "2.1 Implement `resolve_gateway_config()` in `headroom/mcp_gateway/config.py`": [
+      {
+        "executionId": "4c99d0d1-5ebb-4336-9a32-8e2e3f9d4e13",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1783357478434
+      },
+      {
+        "executionId": "4c99d0d1-5ebb-4336-9a32-8e2e3f9d4e13",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1783359157541
+      }
+    ],
+    "3.1 Implement `DownstreamClientManager` and `AggregationResult` in `headroom/mcp_gateway/downstream.py`": [
+      {
+        "executionId": "4c99d0d1-5ebb-4336-9a32-8e2e3f9d4e13",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1783357480601
+      },
+      {
+        "executionId": "4c99d0d1-5ebb-4336-9a32-8e2e3f9d4e13",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1783359159501
+      }
+    ],
+    "4.1 Implement `ToolIndex` with `build()` in `headroom/mcp_gateway/index.py`": [
+      {
+        "executionId": "4c99d0d1-5ebb-4336-9a32-8e2e3f9d4e13",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1783357481882
+      },
+      {
+        "executionId": "4c99d0d1-5ebb-4336-9a32-8e2e3f9d4e13",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1783359159822
+      }
+    ],
+    "2. Implement configuration resolution": [
+      {
+        "executionId": "4c99d0d1-5ebb-4336-9a32-8e2e3f9d4e13",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1783359157572
+      }
+    ],
+    "3. Implement the downstream client manager": [
+      {
+        "executionId": "4c99d0d1-5ebb-4336-9a32-8e2e3f9d4e13",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1783359159523
+      }
+    ],
+    "4. Implement the tool index build": [
+      {
+        "executionId": "4c99d0d1-5ebb-4336-9a32-8e2e3f9d4e13",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1783359159877
+      }
+    ],
+    "8.2 Write unit tests for registration outcomes and key preservation": [
+      {
+        "executionId": "4c99d0d1-5ebb-4336-9a32-8e2e3f9d4e13",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1783359267289
+      }
+    ],
+    "3.2 Write property test for downstream failure isolation": [
+      {
+        "executionId": "4c99d0d1-5ebb-4336-9a32-8e2e3f9d4e13",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1783359268228
+      }
+    ],
+    "3.3 Write unit tests for single-listing and health reporting": [
+      {
+        "executionId": "4c99d0d1-5ebb-4336-9a32-8e2e3f9d4e13",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1783359269455
+      }
+    ],
+    "1.2 Write unit tests for data model construction and defaults": [
+      {
+        "executionId": "4c99d0d1-5ebb-4336-9a32-8e2e3f9d4e13",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1783359270246
+      },
+      {
+        "executionId": "4c99d0d1-5ebb-4336-9a32-8e2e3f9d4e13",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1783359401210
+      }
+    ],
+    "5.1 Implement `ToolSearch.search(query, limit)` in `headroom/mcp_gateway/search.py`": [
+      {
+        "executionId": "4c99d0d1-5ebb-4336-9a32-8e2e3f9d4e13",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1783359432864
+      },
+      {
+        "executionId": "4c99d0d1-5ebb-4336-9a32-8e2e3f9d4e13",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1783359827959
+      }
+    ],
+    "2.2 Write property test for config resolution filtering and self-exclusion": [
+      {
+        "executionId": "4c99d0d1-5ebb-4336-9a32-8e2e3f9d4e13",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1783359433713
+      },
+      {
+        "executionId": "4c99d0d1-5ebb-4336-9a32-8e2e3f9d4e13",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1783359828995
+      }
+    ],
+    "2.3 Write unit tests for source precedence and invalid config": [
+      {
+        "executionId": "4c99d0d1-5ebb-4336-9a32-8e2e3f9d4e13",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1783359434424
+      },
+      {
+        "executionId": "4c99d0d1-5ebb-4336-9a32-8e2e3f9d4e13",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1783359831820
+      }
+    ],
+    "4.2 Write property test for namespacing": [
+      {
+        "executionId": "4c99d0d1-5ebb-4336-9a32-8e2e3f9d4e13",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1783359435096
+      },
+      {
+        "executionId": "4c99d0d1-5ebb-4336-9a32-8e2e3f9d4e13",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1783359832651
+      }
+    ],
+    "4.3 Write property test for schema fidelity at index storage": [
+      {
+        "executionId": "4c99d0d1-5ebb-4336-9a32-8e2e3f9d4e13",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1783359436067
+      },
+      {
+        "executionId": "4c99d0d1-5ebb-4336-9a32-8e2e3f9d4e13",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1783359833257
+      }
+    ],
+    "4.4 Write unit tests for collision and unparseable-schema exclusion": [
+      {
+        "executionId": "4c99d0d1-5ebb-4336-9a32-8e2e3f9d4e13",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1783359436216
+      },
+      {
+        "executionId": "4c99d0d1-5ebb-4336-9a32-8e2e3f9d4e13",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1783359834060
+      }
+    ],
+    "5. Implement tool search": [
+      {
+        "executionId": "4c99d0d1-5ebb-4336-9a32-8e2e3f9d4e13",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1783359827995
+      }
+    ],
+    "6. Checkpoint - Ensure all tests pass": [
+      {
+        "executionId": "4c99d0d1-5ebb-4336-9a32-8e2e3f9d4e13",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1783359834574
+      }
+    ],
+    "7.1 Implement `MCPGatewayServer` skeleton in `headroom/mcp_gateway/server.py`": [
+      {
+        "executionId": "d2a9d2e6-eeb0-44e4-ad16-5821244a16e8",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1783360912438
+      },
+      {
+        "executionId": "d2a9d2e6-eeb0-44e4-ad16-5821244a16e8",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1783362183730
+      }
+    ],
+    "7.2 Implement `_handle_find_tools`": [
+      {
+        "executionId": "d2a9d2e6-eeb0-44e4-ad16-5821244a16e8",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1783360913519
+      },
+      {
+        "executionId": "d2a9d2e6-eeb0-44e4-ad16-5821244a16e8",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1783362183991
+      }
+    ],
+    "7.4 Implement `_handle_describe_tool`": [
+      {
+        "executionId": "d2a9d2e6-eeb0-44e4-ad16-5821244a16e8",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1783360914283
+      },
+      {
+        "executionId": "d2a9d2e6-eeb0-44e4-ad16-5821244a16e8",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1783362184220
+      }
+    ],
+    "7.6 Implement `_handle_invoke_tool`": [
+      {
+        "executionId": "d2a9d2e6-eeb0-44e4-ad16-5821244a16e8",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1783360916310
+      },
+      {
+        "executionId": "d2a9d2e6-eeb0-44e4-ad16-5821244a16e8",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1783362184664
+      }
+    ],
+    "7.10 Implement `_handle_list_servers`": [
+      {
+        "executionId": "d2a9d2e6-eeb0-44e4-ad16-5821244a16e8",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1783360917262
+      },
+      {
+        "executionId": "d2a9d2e6-eeb0-44e4-ad16-5821244a16e8",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1783362185393
+      }
+    ],
+    "5.2 Write property test for keyword-fallback determinism": [
+      {
+        "executionId": "d2a9d2e6-eeb0-44e4-ad16-5821244a16e8",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1783360918246
+      },
+      {
+        "executionId": "d2a9d2e6-eeb0-44e4-ad16-5821244a16e8",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1783362186333
+      }
+    ],
+    "5.3 Write unit tests for limit validation and empty results": [
+      {
+        "executionId": "d2a9d2e6-eeb0-44e4-ad16-5821244a16e8",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1783360918666
+      },
+      {
+        "executionId": "d2a9d2e6-eeb0-44e4-ad16-5821244a16e8",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1783362186900
+      }
+    ],
+    "7. Implement the MCP gateway server and meta-tools": [
+      {
+        "executionId": "d2a9d2e6-eeb0-44e4-ad16-5821244a16e8",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1783362185417
+      }
+    ],
+    "7.3 Write unit tests for find_tools completeness and errors": [
+      {
+        "executionId": "d2a9d2e6-eeb0-44e4-ad16-5821244a16e8",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1783362212179
+      },
+      {
+        "executionId": "d2a9d2e6-eeb0-44e4-ad16-5821244a16e8",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1783362834671
+      }
+    ],
+    "7.5 Write unit tests for describe_tool resolution paths": [
+      {
+        "executionId": "d2a9d2e6-eeb0-44e4-ad16-5821244a16e8",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1783362212852
+      },
+      {
+        "executionId": "d2a9d2e6-eeb0-44e4-ad16-5821244a16e8",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1783362835632
+      }
+    ],
+    "7.7 Write property test for invocation routing": [
+      {
+        "executionId": "d2a9d2e6-eeb0-44e4-ad16-5821244a16e8",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1783362213250
+      },
+      {
+        "executionId": "d2a9d2e6-eeb0-44e4-ad16-5821244a16e8",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1783362836346
+      }
+    ],
+    "7.8 Write property test for result fidelity": [
+      {
+        "executionId": "d2a9d2e6-eeb0-44e4-ad16-5821244a16e8",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1783362213530
+      },
+      {
+        "executionId": "d2a9d2e6-eeb0-44e4-ad16-5821244a16e8",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1783362836856
+      }
+    ],
+    "7.9 Write unit test for secret redaction on invoke results": [
+      {
+        "executionId": "d2a9d2e6-eeb0-44e4-ad16-5821244a16e8",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1783362214228
+      },
+      {
+        "executionId": "d2a9d2e6-eeb0-44e4-ad16-5821244a16e8",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1783362837670
+      }
+    ],
+    "7.11 Write unit tests for list_servers inventory and health": [
+      {
+        "executionId": "d2a9d2e6-eeb0-44e4-ad16-5821244a16e8",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1783362215148
+      },
+      {
+        "executionId": "d2a9d2e6-eeb0-44e4-ad16-5821244a16e8",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1783362838743
+      }
+    ],
+    "9.1 Add a `gateway` subgroup to `headroom/cli/mcp.py`": [
+      {
+        "executionId": "d2a9d2e6-eeb0-44e4-ad16-5821244a16e8",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1783362216216
+      },
+      {
+        "executionId": "d2a9d2e6-eeb0-44e4-ad16-5821244a16e8",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1783362839915
+      }
+    ],
+    "10.1 Write integration test asserting context reduction end-to-end": [
+      {
+        "executionId": "d2a9d2e6-eeb0-44e4-ad16-5821244a16e8",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1783362218675
+      },
+      {
+        "executionId": "d2a9d2e6-eeb0-44e4-ad16-5821244a16e8",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1783362840832
+      }
+    ],
+    "9. Add the CLI gateway subgroup": [
+      {
+        "executionId": "d2a9d2e6-eeb0-44e4-ad16-5821244a16e8",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1783362839942
+      }
+    ],
+    "9.2 Write unit tests for the gateway CLI subcommands": [
+      {
+        "executionId": "d2a9d2e6-eeb0-44e4-ad16-5821244a16e8",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1783362850716
+      },
+      {
+        "executionId": "d2a9d2e6-eeb0-44e4-ad16-5821244a16e8",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1783363213033
+      }
+    ],
+    "10.2 Add the steering rule and README documentation": [
+      {
+        "executionId": "d2a9d2e6-eeb0-44e4-ad16-5821244a16e8",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1783362850834
+      },
+      {
+        "executionId": "d2a9d2e6-eeb0-44e4-ad16-5821244a16e8",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1783363213549
+      }
+    ],
+    "10. Integration, steering, and README wiring": [
+      {
+        "executionId": "d2a9d2e6-eeb0-44e4-ad16-5821244a16e8",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1783363213580
+      }
+    ],
+    "11. Final checkpoint - Ensure all tests pass": [
+      {
+        "executionId": "d2a9d2e6-eeb0-44e4-ad16-5821244a16e8",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1783363214069
+      },
+      {
+        "executionId": "d2a9d2e6-eeb0-44e4-ad16-5821244a16e8",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1783366501134
+      }
+    ],
+    "12.1 Implement hybrid ranking and regression coverage": [
+      {
+        "executionId": "415e128f-77cd-48ba-b928-47d84107d8fc",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1784053069306
+      },
+      {
+        "executionId": "415e128f-77cd-48ba-b928-47d84107d8fc",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1784053113285
+      },
+      {
+        "executionId": "c5b741db-73f2-4426-8b8f-dd7856f7e7d3",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1784054488553
+      },
+      {
+        "executionId": "c5b741db-73f2-4426-8b8f-dd7856f7e7d3",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1784055696914
+      }
+    ],
+    "12. Restore rare exact-term relevance with hybrid tool search": [
+      {
+        "executionId": "c5b741db-73f2-4426-8b8f-dd7856f7e7d3",
+        "chatSessionId": "sess_6d4a87f9-e217-40c4-9831-8497915f7454",
+        "timestamp": 1784055696959
+      }
+    ]
+  }
+}

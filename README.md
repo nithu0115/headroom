@@ -250,6 +250,39 @@ Kiro is MCP-native: `headroom mcp install` (or `--agent kiro`) writes the Headro
 Undo durable wrapping with `headroom unwrap <tool>` (supports: `claude`, `copilot`, `codex`, `grok`, `kimi`, `omp`, `opencode`, `openclaw`, `zcode`).
 Registry authors can use the canonical [`server.json`](server.json) in the repo root instead of reconstructing the `headroom mcp serve` contract from prose.
 
+### MCP Gateway — front many servers behind four meta-tools
+
+If your client loads a lot of MCP servers, their tool schemas can add up fast
+(hundreds of tools ≈ 30–60k always-on tokens). The MCP Gateway is a single Headroom MCP
+server that your client connects to *instead* of the individual downstream
+servers. It keeps every downstream tool out of the model context and exposes
+only four meta-tools — `find_tools`, `describe_tool`, `invoke_tool`, and
+`list_servers` — so the model discovers tools on demand and loads a schema only
+when it needs it. Large `invoke_tool` results may be compressed and returned
+with a `hash` you can pass to `headroom_retrieve` for the exact original.
+
+```bash
+headroom mcp gateway install     # register a single headroom-gateway entry
+headroom mcp gateway status      # inspect downstreams + registration
+headroom mcp gateway serve       # run the gateway (usually invoked by the client)
+headroom mcp gateway uninstall   # remove the headroom-gateway entry
+```
+
+**Disable-individual-servers workflow.** To actually cut the context cost:
+
+1. `headroom mcp gateway install` — writes one `headroom-gateway` server entry.
+2. In your client, **disable the individual downstream MCP servers** so only the
+   gateway stays loaded. The gateway still fronts all of them via the meta-tools.
+3. Restart your client so it connects to the gateway.
+
+This works with Kiro and is MCP-client-agnostic (Claude Code, Cursor, and other
+MCP clients). The gateway resolves its downstream inventory from the first
+available source, in priority order: `$HEADROOM_GATEWAY_CONFIG` → a dedicated
+`headroom-gateway.json` → the client's `mcp.json`. Narrow the set with an
+`include` or `exclude` list in that source (`include` is applied first, then
+`exclude`); the `headroom-gateway` self entry is always excluded to prevent
+recursion.
+
 ### GitHub Copilot CLI subscription mode
 
 Headroom can route GitHub Copilot CLI subscription traffic through the local proxy:
