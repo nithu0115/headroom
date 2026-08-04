@@ -21,6 +21,10 @@ from __future__ import annotations
 import copy
 import json
 
+import pytest
+
+# Skip entire module if hypothesis not installed
+pytest.importorskip("hypothesis")
 from hypothesis import given, settings
 from hypothesis import strategies as st
 

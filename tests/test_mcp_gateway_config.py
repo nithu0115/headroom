@@ -16,6 +16,9 @@ import json
 from pathlib import Path
 
 import pytest
+
+# Skip entire module if hypothesis not installed
+pytest.importorskip("hypothesis")
 from hypothesis import HealthCheck, given, settings
 from hypothesis import strategies as st
 

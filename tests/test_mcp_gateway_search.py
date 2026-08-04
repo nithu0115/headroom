@@ -10,6 +10,9 @@ from __future__ import annotations
 from collections.abc import Mapping, Sequence
 
 import pytest
+
+# Skip entire module if hypothesis not installed
+pytest.importorskip("hypothesis")
 from hypothesis import given, settings
 from hypothesis import strategies as st
 
